@@ -1,0 +1,52 @@
+# To-Do List Application
+
+tasks = []
+
+def add_task():
+    task = input("Enter a task: ")
+    tasks.append(task)
+    print(f"Task '{task}' added!")
+
+def update_task():
+    task_number = int(input("Enter the task number: ")) - 1
+    if task_number < len(tasks):
+        task = input("Enter the updated task: ")
+        tasks[task_number] = task
+        print(f"Task '{task}' updated!")
+    else:
+        print("Invalid task number!")
+
+def delete_task():
+    task_number = int(input("Enter the task number: ")) - 1
+    if task_number < len(tasks):
+        del tasks[task_number]
+        print("Task deleted!")
+    else:
+        print("Invalid task number!")
+
+def view_tasks():
+    print("To-Do List:")
+    for i, task in enumerate(tasks, start=1):
+        print(f"{i}. {task}")
+
+while True:
+    print("\nTo-Do List Menu:")
+    print("1. Add Task")
+    print("2. Update Task")
+    print("3. Delete Task")
+    print("4. View Tasks")
+    print("5. Quit")
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        add_task()
+    elif choice == "2":
+        update_task()
+    elif choice == "3":
+        delete_task()
+    elif choice == "4":
+        view_tasks()
+    elif choice == "5":
+        break
+    else:
+        print("Invalid choice!")
